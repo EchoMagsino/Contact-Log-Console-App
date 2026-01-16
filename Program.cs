@@ -21,6 +21,8 @@ bool running = true;
 
 while (running)
 {
+    //These are the choices of the app
+
     Console.WriteLine();
     Console.WriteLine("This is contact numbers what do you want to do? ");
     Console.WriteLine("1. Add a contact number");
@@ -32,7 +34,8 @@ while (running)
 
     if (Choice == 1)
     {
-
+        //Choice 1: Add a contact number, if it's already exist it will not add
+        
         Console.Write("Enter contact ID (name): ");
         ContactID = Console.ReadLine().ToUpper();
 
@@ -70,6 +73,8 @@ while (running)
 
     else if (Choice == 2)
     {
+        //Choice 2: See all the contact numbers by their ID 
+
         Console.Write("Enter contact ID: ");
         ContactID = Console.ReadLine();
         ContactID = ContactID.ToUpper();
@@ -90,6 +95,9 @@ while (running)
 
     else if (Choice == 3)
     {
+
+        //Choice 3: Remove a contact number by their ID 
+
         Console.Write("Enter the ID that you want to remove: ");
         ContactID = Console.ReadLine().ToUpper();
         
@@ -108,6 +116,8 @@ while (running)
 
     else if (Choice == 4)
     {
+        //Choice 4: Update a contact number by their ID
+
         Console.Write("Enter the the contact id that you want to update: ");
         ContactID = Console.ReadLine().ToUpper();
         Console.Write("Enter new number: ");
@@ -126,6 +136,7 @@ while (running)
 
     else if (Choice == 5)
     {
+        //Choice 5: Exit the application
 
         running = false;
 
