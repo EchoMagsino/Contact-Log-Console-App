@@ -26,16 +26,17 @@ while (running)
     Console.WriteLine();
     Console.WriteLine("This is contact numbers what do you want to do? ");
     Console.WriteLine("1. Add a contact number");
-    Console.WriteLine("2. See the contact numbers");
+    Console.WriteLine("2. Find contact numbers");
     Console.WriteLine("3. Remove a contact number");
     Console.WriteLine("4. Update a contact number");
-    Console.WriteLine("5. Exit");
+    Console.WriteLine("5. See all the contact numbers");
+    Console.WriteLine("6. Exit");
     Choice = Convert.ToInt32(Console.ReadLine());
 
     if (Choice == 1)
     {
         //Choice 1: Add a contact number, if it's already exist it will not add
-        
+
         Console.Write("Enter contact ID (name): ");
         ContactID = Console.ReadLine().ToUpper();
 
@@ -56,7 +57,7 @@ while (running)
             ContactValue = Console.ReadLine();
 
 
-            if (ContactValue.Length == 11 && ContactValue.All(char.IsDigit) && !string.IsNullOrWhiteSpace(ContactValue) && !ContactNumbers.ContainsValue(ContactValue)) 
+            if (ContactValue.Length == 11 && ContactValue.All(char.IsDigit) && !string.IsNullOrWhiteSpace(ContactValue) && !ContactNumbers.ContainsValue(ContactValue))
             {
                 ContactNumbers.Add(ContactID, ContactValue);
                 Console.WriteLine("The number added successfully");
@@ -78,7 +79,7 @@ while (running)
         Console.Write("Enter contact ID: ");
         ContactID = Console.ReadLine();
         ContactID = ContactID.ToUpper();
-        
+
 
         if (ContactNumbers.ContainsKey(ContactID))
         {
@@ -91,7 +92,7 @@ while (running)
         }
     }
 
-   
+
 
     else if (Choice == 3)
     {
@@ -100,7 +101,7 @@ while (running)
 
         Console.Write("Enter the ID that you want to remove: ");
         ContactID = Console.ReadLine().ToUpper();
-        
+
         if (ContactNumbers.ContainsKey(ContactID))
         {
             ContactNumbers.Remove(ContactID);
@@ -111,8 +112,8 @@ while (running)
         {
             Console.WriteLine("No contact found with that ID");
         }
-        
-     }
+
+    }
 
     else if (Choice == 4)
     {
@@ -120,11 +121,12 @@ while (running)
 
         Console.Write("Enter the the contact id that you want to update: ");
         ContactID = Console.ReadLine().ToUpper();
-        Console.Write("Enter new number: ");
-        ContactValue = Console.ReadLine();
-        ContactNumbers[ContactID] = ContactValue;
+
         if (ContactNumbers.ContainsKey(ContactID))
         {
+            Console.Write("Enter new number: ");
+            ContactValue = Console.ReadLine();
+            ContactNumbers[ContactID] = ContactValue;
             Console.WriteLine("The contact number successfully updated");
         }
 
@@ -135,6 +137,25 @@ while (running)
     }
 
     else if (Choice == 5)
+    {
+
+        if (ContactNumbers.Count == 0)
+        {
+            Console.WriteLine("\n No contacts available");
+        }
+
+
+        foreach (KeyValuePair<string, string> contact in ContactNumbers)
+        {
+            Console.WriteLine($"-------------------------------\n Name: {contact.Key} \n Phone numbers: {contact.Value}");
+            Console.WriteLine("--------------------------------");
+
+        }
+
+        
+    }
+
+    else if (Choice == 6)
     {
         //Choice 5: Exit the application
 
