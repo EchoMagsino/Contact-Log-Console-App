@@ -8,4 +8,5 @@ The application supports creating new contacts, viewing all existing contacts, u
 
 Example Usage
 
+<img width="1321" height="760" alt="image" src="https://github.com/user-attachments/assets/b6006c89-85a4-4718-9f1d-a0c81c09eafa" />
 
